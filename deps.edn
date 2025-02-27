@@ -1,0 +1,14 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/core.async    {:mvn/version "1.5.648"}
+        io.github.nubank/morse {:git/tag "v2023.04.30.01" :git/sha "d99b09c"}
+        org.clojure/data.csv {:mvn/version "1.0.0"}
+        com.datomic/peer          {:mvn/version "1.0.7075"
+                                   :exclusions [org.slf4j/slf4j-nop
+                                                org.slf4j/slf4j-log4j12]}
+        ;; Add clj-http
+        clj-http/clj-http {:mvn/version "3.12.3"}
+        
+        ;; Add Cheshire for JSON parsing
+        cheshire/cheshire {:mvn/version "5.11.0"}}
+ :aliases {:run {:exec-fn datomic.load-generator/run}
+           :dev {:extra-deps {io.github.nubank/morse {:git/tag "v2023.04.30.01" :git/sha "d99b09c"}}}}}
